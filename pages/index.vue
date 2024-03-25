@@ -1,9 +1,9 @@
 <template>
-  <Tutorial/>
+  <Tutorial />
 </template>
 
 <script>
-export default {
-  name: 'IndexPage'
-}
+import { Vue } from 'nuxt-property-decorator';
+
+export default class HomePage extends Vue {}
 </script>
