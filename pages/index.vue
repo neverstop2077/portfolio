@@ -7,12 +7,12 @@
           alt="avatar of woodie"
         />
       </div>
-      <h1 class="heading-text">{{ this.headingName }}</h1>
-      <h2
+      <p class="heading-text">{{ this.headingName }}</p>
+      <p
         class="text-sm text-gray-500 mb-3 py-2 dark:px-4 dark:py-2 dark:text-zinc-400 dark:bg-dark-800 dark:rounded-lg"
       >
         {{ this.headingRole }}
-      </h2>
+      </p>
       <div class="social">
         <BlocLink
           v-for="socialTag in socialTags"

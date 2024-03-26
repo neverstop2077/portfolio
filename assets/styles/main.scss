@@ -12,3 +12,25 @@ body {
   @apply bg-cover bg-center bg-no-repeat min-h-screen;
   background-image: url("assets/images/page-bg-light.jpg");
 }
+
+.headline {
+  &-1 {
+    font-family: 'Playfair Display', sans-serif;
+    @apply text-4xl font-bold tracking-wide relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 23%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      height: 3px;
+      background-color: var(--theme-primary);
+      border-radius: 5px;
+      background: #fa5252;
+      background: linear-gradient(97deg, #fa5252, #dd2476);
+    }
+  }
+}
