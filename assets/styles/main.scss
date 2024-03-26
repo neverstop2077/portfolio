@@ -2,7 +2,13 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.dark {
+  & .app {
+    background-image: url("assets/images/page-bg-dark.jpg");
+  }
+}
+
 .app {
   @apply bg-cover bg-center bg-no-repeat min-h-screen;
-  background-image: url("assets/images/page-bg-1.jpg");
+  background-image: url("assets/images/page-bg-light.jpg");
 }

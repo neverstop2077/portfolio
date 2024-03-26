@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto mt-4rem">
-    About page
+    <span class="text-red-400">About page</span>
     <div class="flex flex-col justify-center items-center">
       <div class="avatar">
         <img
