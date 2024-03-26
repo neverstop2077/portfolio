@@ -13,7 +13,7 @@
       <div class="flex flex-row items-center">
         <BlocLink v-for="tab in tabs" :key="tab.id" :linkTo="tab.route">
           <BlocButton
-            class="mr-1"
+            class="mr-3"
             :class="$route.path === tab.route ? 'active' : ''"
           >
             <i :class="tab.iconClass"></i>
