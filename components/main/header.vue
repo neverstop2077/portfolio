@@ -10,7 +10,7 @@
           />
         </BlocLink>
       </div>
-      <div>
+      <div class="flex flex-row items-center">
         <BlocLink v-for="tab in tabs" :key="tab.id" :linkTo="tab.route">
           <BlocButton
             class="mr-1"
@@ -20,6 +20,16 @@
             {{ tab.title }}
           </BlocButton>
         </BlocLink>
+        <BlocButton
+          buttonClass="color-mode-btn"
+          @button-click="onColorModeChange"
+        >
+          <i
+            v-if="this.$colorMode.value === 'light'"
+            class="fa-solid fa-sun"
+          ></i>
+          <i v-else class="fa-solid fa-moon"></i>
+        </BlocButton>
       </div>
     </header>
   </div>
@@ -27,6 +37,9 @@
 
 <script>
 import { Component, Vue } from 'nuxt-property-decorator';
+
+const DARK_MODE = 'dark';
+const LIGHT_MODE = 'light';
 
 @Component
 export default class Header extends Vue {
@@ -62,6 +75,11 @@ export default class Header extends Vue {
       title: 'Contact',
     },
   ];
+
+  onColorModeChange = () => {
+    this.$colorMode.preference =
+      this.$colorMode.value === DARK_MODE ? LIGHT_MODE : DARK_MODE;
+  };
 }
 </script>
 
@@ -71,5 +89,9 @@ export default class Header extends Vue {
 }
 .logo {
   @apply max-w-140px;
+}
+.color-mode-btn {
+  @apply w-45px h-45px ml-4;
+  border-radius: 50% !important;
 }
 </style>
