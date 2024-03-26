@@ -2,7 +2,9 @@
   <div class="container mx-auto">
     <header class="header flex flex-row justify-between items-center mx-3rem">
       <div class="logo">
-        <img class="logo-image" src="~/assets/images/logo.png"  alt="woodie logo">
+        <BlocLink linkTo="/">
+          <img class="logo-image" src="~/assets/images/logo.png"  alt="woodie logo">
+        </BlocLink>
       </div>
       <div>
         <BlocButton class="mr-1" :class="$route.path === '/' ? 'active' : ''">
