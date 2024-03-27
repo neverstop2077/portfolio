@@ -59,21 +59,21 @@ export default class HomePage extends mixins(BasePage) {
         {
           id: 1,
           link: FB_LINK,
-          iconClass: 'fa-brands fa-square-facebook ',
+          iconClass: 'fa-brands social-icon fa-square-facebook ',
           buttonClass:
             'social-tags !text-sky-700 !hover:text-light-500 !dark:text-light-500',
         },
         {
           id: 2,
           link: LINKED_LINK,
-          iconClass: 'fa-brands fa-linkedin',
+          iconClass: 'fa-brands social-icon fa-linkedin',
           buttonClass:
             'social-tags !text-sky-800 !hover:text-light-500 !dark:text-light-500',
         },
         {
           id: 3,
           link: UPWORK_LINK,
-          iconClass: 'fa-brands fa-upwork',
+          iconClass: 'fa-brands social-icon fa-upwork',
           buttonClass:
             'social-tags !text-lime-500 !hover:text-light-500 !dark:text-light-500',
         },
@@ -95,13 +95,5 @@ export default class HomePage extends mixins(BasePage) {
 .heading-text {
   font-family: 'Playfair Display', sans-serif;
   @apply text-3xl tracking-wide my-4 text-dark dark:text-white;
-}
-
-.social {
-  @apply flex flex-row gap-x-4;
-
-  &-tags {
-    @apply text-2xl w-40px h-40px mt-2 mb-8 flex items-center justify-center;
-  }
 }
 </style>

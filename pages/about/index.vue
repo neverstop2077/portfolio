@@ -170,41 +170,43 @@ export default class AboutPage extends mixins(BasePage) {
         tags: [
           {
             id: 1,
-            tagIcon: 'tag-signature fa-solid fa-code text-pink-400',
+            tagIcon: 'tag-signature text-4xl fa-solid fa-code text-pink-400',
             tagTitle: 'Web Development',
             tagContent:
               'I build websites with HTML, CSS, and JavaScript to make them work smoothly.',
           },
           {
             id: 2,
-            tagIcon: 'tag-signature fa-solid fa-eye text-cyan-400',
+            tagIcon: 'tag-signature text-4xl fa-solid fa-eye text-cyan-400',
             tagTitle: 'Design Eyes',
             tagContent:
               'I make websites look great by choosing nice colors and arranging things neatly.',
           },
           {
             id: 3,
-            tagIcon: 'tag-signature fa-solid fa-hourglass-half text-orange-400',
+            tagIcon:
+              'tag-signature text-4xl fa-solid fa-hourglass-half text-orange-400',
             tagTitle: 'Management',
             tagContent:
               'I keep things organized and make sure projects finish on time.',
           },
           {
             id: 4,
-            tagIcon: 'tag-signature fa-solid fa-comments text-red-400',
+            tagIcon: 'tag-signature text-4xl fa-solid fa-comments text-red-400',
             tagTitle: 'Communicate',
             tagContent:
               'I talk with clients and teammates to understand what they want.',
           },
           {
             id: 5,
-            tagIcon: 'tag-signature fa-solid fa-wrench text-green-400',
+            tagIcon: 'tag-signature text-4xl fa-solid fa-wrench text-green-400',
             tagTitle: 'Improve Ui/Ux',
             tagContent: 'I make websites easy to use and fun to look at.',
           },
           {
             id: 6,
-            tagIcon: 'tag-signature fa-solid fa-people-group text-purple-400',
+            tagIcon:
+              'tag-signature text-4xl fa-solid fa-people-group text-purple-400',
             tagTitle: 'Team player',
             tagContent: 'I work well with others and help my team succeed.',
           },
@@ -239,95 +241,8 @@ export default class AboutPage extends mixins(BasePage) {
 </script>
 
 <style lang="scss">
-.card {
-  @apply bg-white dark:bg-neutral-900 mx-8 px-8 pt-16 pb-6 rounded-xl;
-
-  &-header {
-    @apply mb-40px mx-4;
-  }
-
-  &-footer {
-    @apply mt-8 flex mx-auto;
-
-    &-content {
-      @apply mx-auto text-zinc-800 dark:text-zinc-400;
-    }
-  }
-
-  &-content {
-    @apply;
-
-    &-item {
-      @apply px-4;
-    }
-    &-left {
-      @apply;
-    }
-
-    &-right {
-      @apply;
-    }
-
-    &-section {
-      @apply py-3;
-
-      &-heading {
-        @apply text-2xl mb-3 text-dark-900 dark:text-white;
-      }
-
-      &-paragraph {
-        @apply text-normal text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3;
-      }
-    }
-  }
-}
-
 .summary-image {
   @apply max-w-270px max-h-400px rounded-3xl;
-}
-
-.badge {
-  @apply flex flex-row items-center gap-x-10px py-3;
-
-  &-signature {
-    @apply min-w-44px min-h-44px shadow-md;
-  }
-
-  &-icon {
-    @apply min-w-20px text-xl;
-  }
-
-  &-title {
-    @apply text-xs text-zinc-500 dark:text-zine-300 mb-1;
-  }
-
-  &-content {
-    @apply text-dark dark:text-white;
-  }
-}
-
-.tag {
-  @apply flex flex-row items-start px-7 py-5 mb-3 rounded-xl gap-x-5 border-0 dark:border-0.3px dark:border-zinc-600;
-
-  &.tag-pink {
-    @apply bg-rose-50 dark:bg-transparent;
-  }
-
-  &.tag-blue {
-    @apply bg-blue-50 dark:bg-transparent;
-  }
-
-  &-signature {
-    @apply: text-4xl;
-  }
-
-  &-title {
-    @apply text-xl font-medium mb-3 dark:text-white;
-  }
-
-  &-content {
-    @apply text-normal text-zinc-500 dark:text-zinc-400 leading-loose;
-  }
 }
 
 .carousel {
