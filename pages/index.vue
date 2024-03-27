@@ -7,15 +7,15 @@
           alt="avatar of woodie"
         />
       </div>
-      <p class="heading-text">{{ this.headingName }}</p>
+      <p class="heading-text">{{ getSection('hero.headingName') }}</p>
       <p
         class="text-sm text-gray-500 mb-3 py-2 dark:px-4 dark:py-2 dark:text-zinc-400 dark:bg-dark-800 dark:rounded-lg"
       >
-        {{ this.headingRole }}
+        {{ getSection('hero.headingRole') }}
       </p>
       <div class="social">
         <BlocLink
-          v-for="socialTag in socialTags"
+          v-for="socialTag in getSection('hero.socialTags')"
           :key="socialTag.id"
           :isInternal="false"
           :linkTo="socialTag.link"
@@ -41,33 +41,43 @@
 </template>
 
 <script>
-import { Component, Vue } from 'nuxt-property-decorator';
+import { Component, mixins } from 'nuxt-property-decorator';
+import BasePage from '~/mixins/BasePage';
+
+const FB_LINK = 'https://www.facebook.com/vo.duy.7505/';
+const LINKED_LINK = 'https://www.linkedin.com/in/woodie0602/';
+const UPWORK_LINK = 'https://www.upwork.com/freelancers/duyv11';
+const CV_LINK = '/assets/documents/CV.pdf';
 
 @Component
-export default class HomePage extends Vue {
-  headingName = 'Woodie Vo';
-  headingRole = 'Software Engineer';
-  fbLink = 'https://www.facebook.com/vo.duy.7505/';
-  linkedLink = 'https://www.linkedin.com/in/woodie0602/';
-  upworkLink = 'https://www.upwork.com/freelancers/duyv11';
-  cvLink = '/assets/documents/CV.pdf';
-  socialTags = [
-    {
-      id: 1,
-      link: this.fbLink,
-      iconClass: 'fa-brands fa-square-facebook',
+export default class HomePage extends mixins(BasePage) {
+  section = {
+    hero: {
+      headingName: 'Woodie Vo',
+      headingRole: 'Software Engineer',
+      socialTags: [
+        {
+          id: 1,
+          link: FB_LINK,
+          iconClass: 'fa-brands fa-square-facebook',
+        },
+        {
+          id: 2,
+          link: LINKED_LINK,
+          iconClass: 'fa-brands fa-linkedin',
+        },
+        {
+          id: 3,
+          link: UPWORK_LINK,
+          iconClass: 'fa-brands fa-upwork',
+        },
+      ],
     },
-    {
-      id: 2,
-      link: this.linkedLink,
-      iconClass: 'fa-brands fa-linkedin',
-    },
-    {
-      id: 3,
-      link: this.upworkLink,
-      iconClass: 'fa-brands fa-upwork',
-    },
-  ];
+  };
+
+  get cvLink() {
+    return CV_LINK;
+  }
 }
 </script>
 

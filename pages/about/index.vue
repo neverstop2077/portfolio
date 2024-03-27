@@ -2,40 +2,37 @@
   <div class="container mx-auto mt-4rem pb-4rem">
     <div class="card">
       <div class="card-header">
-        <h1 class="headline-1">About Me</h1>
+        <h1 class="headline-1">{{ getSection('hero.heading') }}</h1>
       </div>
       <div class="card-content">
         <div class="flex flex-row columns-2 items-center">
           <div class="card-content-item card-content-left">
             <img
-              src="~/assets/images/summary-image.jpg"
-              alt="woodie's image"
+              :src="getSection('hero.image')"
+              :alt="getSection('hero.imageAlt')"
               class="summary-image"
             />
           </div>
           <div class="card-content-item card-content-right">
             <div class="card-content-section">
-              <h2 class="card-content-section-heading">Who Am I?</h2>
-              <p class="card-content-section-paragraph">
-                I'm a front-end developer based in Vietnam, where I specialize
-                in crafting beautiful and user-friendly websites. I love
-                simplifying complex issues to create straightforward solutions.
-                My passion lies in building engaging online experiences that
-                truly resonate with users.
-              </p>
-              <p class="card-content-section-paragraph">
-                My goal is to bring your ideas to life in the most creative way
-                possible. Having collaborated with numerous renowned brands,
-                I've helped them shine online with visually stunning and
-                intuitive designs. Let's collaborate to ensure your website
-                stands out in the digital landscape!
+              <h2 class="card-content-section-heading">
+                {{ getSection('hero.summary.heading') }}
+              </h2>
+              <p
+                class="card-content-section-paragraph"
+                v-for="content in getSection('hero.summary.content')"
+                :key="content.id"
+              >
+                {{ content.description }}
               </p>
             </div>
             <div class="card-content-section">
-              <h2 class="card-content-section-heading">Personal Info</h2>
+              <h2 class="card-content-section-heading">
+                {{ getSection('hero.information.heading') }}
+              </h2>
               <div class="grid grid-cols-2">
                 <div
-                  v-for="badge in informationBadges"
+                  v-for="badge in getSection('hero.information.badges')"
                   :key="badge.id"
                   class="badge"
                 >
@@ -52,10 +49,12 @@
           </div>
         </div>
         <div class="mt-8">
-          <h2 class="card-content-section-heading">What I Do!</h2>
+          <h2 class="card-content-section-heading">
+            {{ getSection('main.showCase.heading') }}
+          </h2>
           <div class="grid grid-cols-2 gap-6 mt-8">
             <div
-              v-for="(tag, index) in whatIDoTags"
+              v-for="(tag, index) in getSection('main.showCase.tags')"
               class="tag"
               :class="index % 2 ? 'tag-blue' : 'tag-pink'"
               :key="tag.id"
@@ -73,9 +72,14 @@
         <div
           class="mt-8 pt-12 pb-16 py-4 flex flex-col items-center bg-sky-50 dark:bg-dark-900 rounded-xl"
         >
-          <h2 class="card-content-section-heading !mb-6">Clients</h2>
+          <h2 class="card-content-section-heading !mb-6">
+            {{ getSection('end.clients.heading') }}
+          </h2>
           <carousel :autoplay="true" :per-page="1" :pagination-enabled="false">
-            <slide v-for="client in clients" :key="client.id">
+            <slide
+              v-for="client in getSection('end.clients.content')"
+              :key="client.id"
+            >
               <div class="carousel-item">
                 <img
                   class="carousel-image"
@@ -89,7 +93,7 @@
       </div>
       <div class="card-footer">
         <p class="card-footer-content">
-          © 2024 All Rights Reserved by Woodie Vo.
+          {{ getSection('footer') }}
         </p>
       </div>
     </div>
@@ -97,103 +101,140 @@
 </template>
 
 <script>
-import { Component, Vue } from 'nuxt-property-decorator';
+import { Component, mixins } from 'nuxt-property-decorator';
+import BasePage from '~/mixins/BasePage';
 
 @Component
-export default class AboutPage extends Vue {
-  informationBadges = [
-    {
-      id: 1,
-      iconColor:
-        'badge-signature !hover:text-white !text-pink-500 !dark:bg-dark-900',
-      iconClass: 'fa-solid fa-mobile-screen-button badge-icon',
-      title: 'Phone',
-      content: '+84 846 905 006',
+export default class AboutPage extends mixins(BasePage) {
+  section = {
+    hero: {
+      heading: 'About Me',
+      image: require('~/assets/images/summary-image.jpg'),
+      imageAlt: "woodie's image",
+      summary: {
+        heading: 'Who Am I?',
+        content: [
+          {
+            id: 1,
+            description:
+              "I'm a front-end developer based in Vietnam, where I specialize in crafting beautiful and user-friendly websites. I love simplifying complex issues to create straightforward solutions. My passion lies in building engaging online experiences that truly resonate with users.",
+          },
+          {
+            id: 2,
+            description:
+              "My goal is to bring your ideas to life in the most creative way possible. Having collaborated with numerous renowned brands, I've helped them shine online with visually stunning and intuitive designs. Let's collaborate to ensure your website stands out in the digital landscape!",
+          },
+        ],
+      },
+      information: {
+        heading: 'Personal Info',
+        badges: [
+          {
+            id: 1,
+            iconColor:
+              'badge-signature !hover:text-white !text-pink-500 !dark:bg-dark-900',
+            iconClass: 'fa-solid fa-mobile-screen-button badge-icon',
+            title: 'Phone',
+            content: '+84 846 905 006',
+          },
+          {
+            id: 2,
+            iconColor:
+              'badge-signature !hover:text-white !text-cyan-500 !dark:bg-dark-900',
+            iconClass: 'fa-solid fa-inbox badge-icon',
+            title: 'Email',
+            content: 'quocduy060220@gmail.com',
+          },
+          {
+            id: 3,
+            iconColor:
+              'badge-signature !hover:text-white !text-green-500 !dark:bg-dark-900',
+            iconClass: 'fa-solid fa-location-dot badge-icon',
+            title: 'Location',
+            content: 'Viet Nam',
+          },
+          {
+            id: 4,
+            iconColor:
+              'badge-signature !hover:text-white !text-orange-500 !dark:bg-dark-900',
+            iconClass: 'fa-solid fa-calendar-days badge-icon',
+            title: 'Birthday',
+            content: 'Feb 06, 2000',
+          },
+        ],
+      },
     },
-    {
-      id: 2,
-      iconColor:
-        'badge-signature !hover:text-white !text-cyan-500 !dark:bg-dark-900',
-      iconClass: 'fa-solid fa-inbox badge-icon',
-      title: 'Email',
-      content: 'quocduy060220@gmail.com',
+    main: {
+      showCase: {
+        heading: 'What I Do!',
+        tags: [
+          {
+            id: 1,
+            tagIcon: 'tag-signature fa-solid fa-code text-pink-400',
+            tagTitle: 'Web Development',
+            tagContent:
+              'I build websites with HTML, CSS, and JavaScript to make them work smoothly.',
+          },
+          {
+            id: 2,
+            tagIcon: 'tag-signature fa-solid fa-eye text-cyan-400',
+            tagTitle: 'Design Eyes',
+            tagContent:
+              'I make websites look great by choosing nice colors and arranging things neatly.',
+          },
+          {
+            id: 3,
+            tagIcon: 'tag-signature fa-solid fa-hourglass-half text-orange-400',
+            tagTitle: 'Management',
+            tagContent:
+              'I keep things organized and make sure projects finish on time.',
+          },
+          {
+            id: 4,
+            tagIcon: 'tag-signature fa-solid fa-comments text-red-400',
+            tagTitle: 'Communicate',
+            tagContent:
+              'I talk with clients and teammates to understand what they want.',
+          },
+          {
+            id: 5,
+            tagIcon: 'tag-signature fa-solid fa-wrench text-green-400',
+            tagTitle: 'Improve Ui/Ux',
+            tagContent: 'I make websites easy to use and fun to look at.',
+          },
+          {
+            id: 6,
+            tagIcon: 'tag-signature fa-solid fa-people-group text-purple-400',
+            tagTitle: 'Team player',
+            tagContent: 'I work well with others and help my team succeed.',
+          },
+        ],
+      },
     },
-    {
-      id: 3,
-      iconColor:
-        'badge-signature !hover:text-white !text-green-500 !dark:bg-dark-900',
-      iconClass: 'fa-solid fa-location-dot badge-icon',
-      title: 'Location',
-      content: 'Viet Nam',
+    end: {
+      clients: {
+        heading: 'Clients',
+        content: [
+          {
+            id: 1,
+            src: require('~/assets/images/emma.png'),
+            alt: 'emma sleep logo',
+          },
+          {
+            id: 2,
+            src: require('~/assets/images/nfq-logo.png'),
+            alt: 'nfq logo',
+          },
+          {
+            id: 3,
+            src: require('~/assets/images/scalecommerce.png'),
+            alt: 'scale commerce logo',
+          },
+        ],
+      },
     },
-    {
-      id: 4,
-      iconColor:
-        'badge-signature !hover:text-white !text-orange-500 !dark:bg-dark-900',
-      iconClass: 'fa-solid fa-calendar-days badge-icon',
-      title: 'Birthday',
-      content: 'Feb 06, 2000',
-    },
-  ];
-  whatIDoTags = [
-    {
-      id: 1,
-      tagIcon: 'tag-signature fa-solid fa-code text-pink-400',
-      tagTitle: 'Web Development',
-      tagContent:
-        'I build websites with HTML, CSS, and JavaScript to make them work smoothly.',
-    },
-    {
-      id: 2,
-      tagIcon: 'tag-signature fa-solid fa-eye text-cyan-400',
-      tagTitle: 'Design Eyes',
-      tagContent:
-        'I make websites look great by choosing nice colors and arranging things neatly.',
-    },
-    {
-      id: 3,
-      tagIcon: 'tag-signature fa-solid fa-hourglass-half text-orange-400',
-      tagTitle: 'Management',
-      tagContent:
-        'I keep things organized and make sure projects finish on time.',
-    },
-    {
-      id: 4,
-      tagIcon: 'tag-signature fa-solid fa-comments text-red-400',
-      tagTitle: 'Communicate',
-      tagContent:
-        'I talk with clients and teammates to understand what they want.',
-    },
-    {
-      id: 5,
-      tagIcon: 'tag-signature fa-solid fa-wrench text-green-400',
-      tagTitle: 'Improve Ui/Ux',
-      tagContent: 'I make websites easy to use and fun to look at.',
-    },
-    {
-      id: 6,
-      tagIcon: 'tag-signature fa-solid fa-people-group text-purple-400',
-      tagTitle: 'Team player',
-      tagContent: 'I work well with others and help my team succeed.',
-    },
-  ];
-  clients = [
-    {
-      id: 1,
-      src: require('~/assets/images/emma.png'),
-      alt: 'emma sleep logo',
-    },
-    {
-      id: 2,
-      src: require('~/assets/images/nfq-logo.png'),
-      alt: 'nfq logo',
-    },
-    {
-      id: 3,
-      src: require('~/assets/images/scalecommerce.png'),
-      alt: 'scale commerce logo',
-    },
-  ];
+    footer: '© 2024 All Rights Reserved by Woodie Vo.',
+  };
 }
 </script>
 
