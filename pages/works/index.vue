@@ -26,9 +26,14 @@
             role="tablist"
           >
             <div
-              v-for="item in list.list"
-              class="tag tag-pink tab-tag-item"
-              @click="showModal"
+              v-for="(item, index) in list.list"
+              class="tag tab-tag-item"
+              :class="index % 2 === 0 ? 'tag-pink' : 'tag-blue'"
+              @click="
+                () => {
+                  showModal(item);
+                }
+              "
             >
               <div class="tag-image-container">
                 <img :src="item.image" :alt="item.project" class="tag-image" />
@@ -48,65 +53,36 @@
         style="overflow: auto"
       >
         <div class="p-modal-header">
-          <h2 class="p-modal-title">Chul Urina</h2>
+          <h2 class="p-modal-title">{{ modalData.project }}</h2>
           <div class="p-modal-summary">
-            <div class="p-modal-summary-item">
+            <div
+              v-for="summary in modalData.summary"
+              :key="summary.id"
+              class="p-modal-summary-item"
+            >
               <span class="p-modal-summary-item-header">
-                <i class="p-modal-summary-item-icon fa-solid fa-file-lines"></i>
-                Project
+                <i class="p-modal-summary-item-icon" :class="summary.icon"></i>
+                {{ summary.text }}
               </span>
               <span>:</span>
-              <span class="p-modal-summary-item-content">Website</span>
-            </div>
-            <div class="p-modal-summary-item">
-              <span class="p-modal-summary-item-header">
-                <i class="p-modal-summary-item-icon fa-solid fa-file-lines"></i>
-                Project
-              </span>
-              <span>:</span>
-              <span class="p-modal-summary-item-content">Website</span>
-            </div>
-            <div class="p-modal-summary-item">
-              <span class="p-modal-summary-item-header">
-                <i class="p-modal-summary-item-icon fa-solid fa-file-lines"></i>
-                Project
-              </span>
-              <span>:</span>
-              <span class="p-modal-summary-item-content">Website</span>
-            </div>
-            <div class="p-modal-summary-item">
-              <span class="p-modal-summary-item-header">
-                <i class="p-modal-summary-item-icon fa-solid fa-file-lines"></i>
-                Project
-              </span>
-              <span>:</span>
-              <span class="p-modal-summary-item-content">Website</span>
+              <span class="p-modal-summary-item-content">{{
+                summary.information
+              }}</span>
             </div>
           </div>
         </div>
         <div class="p-modal-content">
-          <p class="p-modal-content-text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga
-            consequatur delectus porro sapiente molestias, magni quasi sed, enim
-            corporis omnis doloremque soluta inventore dolorum conseqr quo
-            obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Fuga consequatur delectus porro sapiente
-            molestias, magni quasi sed, enim corporis omnis doloremque soluta
-            inventore dolorum consequuntur quo obcaecati rerum sit non.
-          </p>
-          <p class="p-modal-content-text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga
-            consequatur delectus porro sapiente molestias, magni quasi sed, enim
-            corporis omnis doloremque soluta inventore dolorum conseqr quo
-            obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Fuga consequatur delectus porro sapiente
-            molestias, magni quasi sed, enim corporis omnis doloremque soluta
-            inventore dolorum consequuntur quo obcaecati rerum sit non.
+          <p
+            v-for="description in modalData.description"
+            :key="description.id"
+            class="p-modal-content-text"
+          >
+            {{ description.text }}
           </p>
           <img
             class="p-modal-content-image"
-            src="~/assets/images/work-img-1.jpg"
-            alt="asd"
+            :src="modalData.image"
+            :alt="modalData.project"
           />
         </div>
       </modal>
@@ -123,6 +99,11 @@
 <script>
 import { Component, mixins } from 'nuxt-property-decorator';
 import BasePage from '~/mixins/BasePage';
+
+const MODAL_SUMMARY_FIELD_1 = 'Project';
+const MODAL_SUMMARY_FIELD_2 = 'Client';
+const MODAL_SUMMARY_FIELD_3 = 'Tech';
+const MODAL_SUMMARY_FIELD_4 = 'Preview';
 
 @Component
 export default class AboutPage extends mixins(BasePage) {
@@ -143,6 +124,16 @@ export default class AboutPage extends mixins(BasePage) {
               client: 'Scale Commerce',
               tech: 'HTML/CSS, JQuery, Bootstrap',
               preview: 'https://smoxy.eu',
+              description: [
+                {
+                  id: 1,
+                  text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
+                },
+                {
+                  id: 2,
+                  text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
+                },
+              ],
               image: require('~/assets/images/work-img-1.jpg'),
             },
             {
@@ -153,6 +144,16 @@ export default class AboutPage extends mixins(BasePage) {
               client: 'Scale Commerce',
               tech: 'HTML/CSS, JQuery, Bootstrap',
               preview: 'https://smoxy.eu',
+              description: [
+                {
+                  id: 1,
+                  text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
+                },
+                {
+                  id: 2,
+                  text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
+                },
+              ],
               image: require('~/assets/images/work-img-1.jpg'),
             },
           ],
@@ -243,8 +244,59 @@ export default class AboutPage extends mixins(BasePage) {
     footer: '© 2024 All Rights Reserved by Woodie Vo.',
   };
   activeTab = 'all';
-  showModal() {
+  activeItem = {};
+  modalSample = {
+    header: [
+      {
+        id: 1,
+        icon: 'fa-regular fa-file',
+        text: MODAL_SUMMARY_FIELD_1,
+      },
+      {
+        id: 2,
+        icon: 'fa-regular fa-user',
+        text: MODAL_SUMMARY_FIELD_2,
+      },
+      {
+        id: 3,
+        icon: 'fa-solid fa-code',
+        text: MODAL_SUMMARY_FIELD_3,
+      },
+      {
+        id: 4,
+        icon: 'fa-solid fa-magnifying-glass',
+        text: MODAL_SUMMARY_FIELD_4,
+      },
+    ],
+  };
+  modalData = {};
+  showModal(item) {
+    this.handleGenerateModalData(item);
     this.$modal.show('p-modal');
+  }
+
+  handleGenerateModalData(item) {
+    this.activeItem = item;
+    const mappedModalData = this.modalSample?.header.map((i) => {
+      let data;
+      if (i.text === MODAL_SUMMARY_FIELD_1) {
+        data = this.activeItem?.project;
+      } else if (i.text === MODAL_SUMMARY_FIELD_2) {
+        data = this.activeItem?.client;
+      } else if (i.text === MODAL_SUMMARY_FIELD_3) {
+        data = this.activeItem?.tech;
+      } else if (i.text === MODAL_SUMMARY_FIELD_4) {
+        data = this.activeItem?.preview;
+      }
+      return { ...i, information: data };
+    });
+    this.modalData = {
+      summary: mappedModalData,
+      project: this.activeItem?.project,
+      description: this.activeItem?.description,
+      image: this.activeItem?.image,
+    };
+    console.log(this.modalData);
   }
 
   get getTabs() {
@@ -305,7 +357,7 @@ $active-tab-color: linear-gradient(97deg, #fa5252, #dd2476);
   &-summary {
     @apply grid grid-cols-2 gap-x-6 gap-y-6;
     &-item {
-      @apply text-1.125rem flex items-center gap-x-1 text-dark dark:text-white;
+      @apply text-1.125rem flex items-start gap-x-1 text-dark dark:text-white;
       &-header {
         @apply flex gap-x-2;
       }
