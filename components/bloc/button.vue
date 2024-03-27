@@ -15,17 +15,19 @@ export default class Button extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss">
+$active-button-bg-color: linear-gradient(97deg, #fa5252, #dd2476);
+
 .btn {
   @apply font-normal text-dark-600 dark:text-light-500 dark:bg-transparent py-2.5 px-2 border-0 rounded-lg bg-white text-sm transition-all;
 
   &:hover {
-    background: linear-gradient(97deg, #fa5252, #dd2476);
+    background: $active-button-bg-color;
     @apply text-light-700;
   }
 
   &.active {
-    background: linear-gradient(97deg, #fa5252, #dd2476);
+    background: $active-button-bg-color;
     @apply text-light-700;
   }
 }

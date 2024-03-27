@@ -32,6 +32,8 @@ export default {
     '~/assets/styles/main',
     '~/assets/styles/vendor',
     '~/assets/styles/layout',
+    '~/assets/styles/animation',
+    'vue-js-modal/dist/styles.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
