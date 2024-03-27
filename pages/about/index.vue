@@ -5,7 +5,7 @@
         <h1 class="headline-1">{{ getSection('hero.heading') }}</h1>
       </div>
       <div class="card-content">
-        <div class="flex flex-row columns-2 items-center">
+        <div class="flex flex-row columns-2 items-center mx-[-1rem]">
           <div class="card-content-item card-content-left">
             <img
               :src="getSection('hero.image')"
