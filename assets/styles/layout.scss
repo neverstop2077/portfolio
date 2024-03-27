@@ -1,0 +1,11 @@
+.main {
+  &-container {
+    @apply container mx-auto mt-4rem;
+  }
+}
+
+.section {
+  &-wrapper {
+    @apply mt-8 pt-12 pb-16 py-4 flex flex-col items-center bg-sky-50 dark:bg-dark-900 rounded-xl;
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto mt-4rem">
+  <div class="main-container">
     <div class="flex flex-col justify-center items-center">
       <div class="avatar">
         <img

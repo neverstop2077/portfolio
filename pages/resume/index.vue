@@ -106,7 +106,7 @@ import BasePage from '~/mixins/BasePage';
 export default class AboutPage extends mixins(BasePage) {
   section = {
     hero: {
-      heading: 'About Me',
+      heading: 'Resume',
       image: require('~/assets/images/summary-image.jpg'),
       imageAlt: "woodie's image",
       summary: {
