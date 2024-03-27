@@ -296,7 +296,6 @@ export default class AboutPage extends mixins(BasePage) {
       description: this.activeItem?.description,
       image: this.activeItem?.image,
     };
-    console.log(this.modalData);
   }
 
   get getTabs() {
