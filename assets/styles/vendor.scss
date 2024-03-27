@@ -78,6 +78,10 @@
   &-content {
     @apply text-normal text-zinc-500 dark:text-zinc-400 leading-loose;
   }
+
+  &-timeline {
+    @apply text-sm text-zinc-500 dark:text-zinc-400 leading-loose;
+  }
 }
 
 //Badges
@@ -98,5 +102,12 @@
 
   &-content {
     @apply text-dark dark:text-white;
+  }
+}
+
+.static-tag {
+  @apply rounded-lg py-2 px-4 bg-slate-200 dark:bg-neutral-900 inline-block;
+  &-content {
+    @apply inline text-normal text-zinc-600 dark:text-zinc-400;
   }
 }
