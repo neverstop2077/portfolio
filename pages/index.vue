@@ -21,7 +21,7 @@
           :linkTo="socialTag.link"
           target="_blank"
         >
-          <BlocButton buttonClass="social-tags">
+          <BlocButton :buttonClass="socialTag.buttonClass">
             <i :class="socialTag.iconClass"></i>
           </BlocButton>
         </BlocLink>
@@ -59,17 +59,23 @@ export default class HomePage extends mixins(BasePage) {
         {
           id: 1,
           link: FB_LINK,
-          iconClass: 'fa-brands fa-square-facebook',
+          iconClass: 'fa-brands fa-square-facebook ',
+          buttonClass:
+            'social-tags !text-sky-700 !hover:text-light-500 !dark:text-light-500',
         },
         {
           id: 2,
           link: LINKED_LINK,
           iconClass: 'fa-brands fa-linkedin',
+          buttonClass:
+            'social-tags !text-sky-800 !hover:text-light-500 !dark:text-light-500',
         },
         {
           id: 3,
           link: UPWORK_LINK,
           iconClass: 'fa-brands fa-upwork',
+          buttonClass:
+            'social-tags !text-lime-500 !hover:text-light-500 !dark:text-light-500',
         },
       ],
     },
