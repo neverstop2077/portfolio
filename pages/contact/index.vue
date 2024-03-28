@@ -148,5 +148,9 @@ export default class AboutPage extends mixins(BasePage) {
 <style lang="scss">
 .submit-button {
   @apply bg-transparent px-8 py-3 text-base font-medium border-1 border-gray-500;
+
+  &:hover {
+    @apply border-transparent;
+  }
 }
 </style>
