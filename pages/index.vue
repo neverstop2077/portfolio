@@ -3,7 +3,7 @@
     <div class="flex flex-col justify-center items-center">
       <div class="avatar">
         <img
-          :src="require(`~/assets/images/avt2.jpg`)"
+          :src="require(`~/assets/images/avt2.webp`)"
           alt="avatar of woodie"
         />
       </div>

@@ -4,13 +4,13 @@ body {
 
 .dark {
   & .app {
-    background-image: url("assets/images/page-bg-dark.jpg");
+    background-image: url("assets/images/page-bg-dark.webp");
   }
 }
 
 .app {
   @apply bg-cover bg-center bg-no-repeat min-h-screen;
-  background-image: url("assets/images/page-bg-light.jpg");
+  background-image: url("assets/images/page-bg-light.webp");
 }
 
 .headline {

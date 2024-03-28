@@ -5,7 +5,7 @@
         <BlocLink linkTo="/">
           <img
             class="logo-image"
-            src="~/assets/images/logo.png"
+            src="~/assets/images/logo.webp"
             alt="woodie logo"
           />
         </BlocLink>

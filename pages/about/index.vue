@@ -116,7 +116,7 @@ export default class AboutPage extends mixins(BasePage) {
   section = {
     hero: {
       heading: 'About Me',
-      image: require('~/assets/images/summary-image.jpg'),
+      image: require('~/assets/images/summary-image.webp'),
       imageAlt: "woodie's image",
       summary: {
         heading: 'Who Am I?',
@@ -226,17 +226,17 @@ export default class AboutPage extends mixins(BasePage) {
         content: [
           {
             id: 1,
-            src: require('~/assets/images/emma.png'),
+            src: require('~/assets/images/emma.webp'),
             alt: 'emma sleep logo',
           },
           {
             id: 2,
-            src: require('~/assets/images/nfq-logo.png'),
+            src: require('~/assets/images/nfq-logo.webp'),
             alt: 'nfq logo',
           },
           {
             id: 3,
-            src: require('~/assets/images/scalecommerce.png'),
+            src: require('~/assets/images/scalecommerce.webp'),
             alt: 'scale commerce logo',
           },
         ],

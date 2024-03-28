@@ -137,38 +137,42 @@ export default class AboutPage extends mixins(BasePage) {
               type: 'Website',
               client: 'Scale Commerce',
               tech: 'HTML/CSS, JQuery, Bootstrap',
-              preview: 'https://smoxy.eu',
+              preview: 'https://scale.sc/',
               description: [
                 {
                   id: 1,
-                  text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
+                  text: "In the project, our main purpose is to scale our clients' e-commerce sites, which helps them boost their website load speed, capacity, and other traffic tracking tools to observe their website in their daily work.",
                 },
                 {
                   id: 2,
-                  text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
+                  text: 'Scale project contains multiple products such as CommerceScore where users can use it as Google Analytics, SmartProxy helps website owners control their resources, bandwidth, and more...',
+                },
+                {
+                  id: 3,
+                  text: 'My role in Scale team, is to deal with Front-end side including creating UI based on the design from clients, aligning Scrum meetings where we discuss about everything in project and improve if any needed.',
                 },
               ],
-              image: require('~/assets/images/work-img-1.jpg'),
+              image: require('~/assets/images/smoxy.webp'),
             },
             {
               id: 2,
-              position: 'Front-end dev',
-              project: 'Scale Commerce',
+              position: 'Full-stack dev',
+              project: 'Emma Career',
               type: 'Website',
-              client: 'Scale Commerce',
-              tech: 'HTML/CSS, JQuery, Bootstrap',
-              preview: 'https://smoxy.eu',
+              client: 'Emma',
+              tech: 'VueJS, NodeJS, TailwindCSS',
+              preview: 'https://team.emma-sleep.com/',
               description: [
                 {
                   id: 1,
-                  text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
+                  text: 'Emma Career is a Career website of Emma Sleep company. Its main purpose is to show all of the current opening jobs available in Emma at that time. Some main features of the website are blog post, news from Emma, job searching and filtering,...',
                 },
                 {
                   id: 2,
-                  text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum conseqr quo obcaecati rerum sit non. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga consequatur delectus porro sapiente molestias, magni quasi sed, enim corporis omnis doloremque soluta inventore dolorum consequuntur quo obcaecati rerum sit non.',
+                  text: 'In Emma Career, I handle both Front-end and Back-end side. On Front-end, we applied NuxtJS/VueJS for the display. On the other hand, we take care the Back-end by ExpressJS/NodeJS and some further technical tools such as headless CMS ContentStack, Cronjob, LeverAPI,...',
                 },
               ],
-              image: require('~/assets/images/work-img-1.jpg'),
+              image: require('~/assets/images/emma-career.webp'),
             },
           ],
         },
@@ -306,7 +310,7 @@ $active-tab-color: linear-gradient(97deg, #fa5252, #dd2476);
   &-summary {
     @apply grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6;
     &-item {
-      @apply text-1.125rem gap-x-1 text-dark dark:text-white;
+      @apply text-1.125rem gap-x-1 text-dark dark:text-white leading-relaxed;
       &-header {
         @apply;
       }
