@@ -51,6 +51,7 @@ const CV_LINK = '/assets/documents/CV.pdf';
 export default class HomePage extends mixins(BasePage) {
   section = {
     head: {
+      title: '',
       meta: [
         {
           hid: 'description',
