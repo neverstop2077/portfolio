@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container pb-4rem">
+  <div class="main-container">
     <div class="card">
       <div class="card-header">
         <h1 class="headline-1">{{ getSection('hero.heading') }}</h1>
