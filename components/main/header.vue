@@ -106,6 +106,8 @@ export default class Header extends Vue {
 </script>
 
 <style lang="scss">
+$burger-button-active-color: linear-gradient(180deg, #1b74e4, #1b74e4);
+
 .header {
   @apply pt-4 flex flex-row justify-between items-center mx-3rem relative;
 }
@@ -118,10 +120,13 @@ export default class Header extends Vue {
   border-radius: 50% !important;
 }
 .burger-button {
-  @apply block lg:hidden;
+  @apply block lg:hidden transition-all duration-300;
+  &:hover {
+    background: $burger-button-active-color !important;
+  }
 }
 .mobile-menu {
-  @apply py-0 px-6 box-border bg-white dark:bg-black rounded-xl transform scale-y-0 origin-top shadow-sm dark:shadow-gray-800 absolute z-10 left-0 right-0 top-full flex flex-col gap-y-4 lg:hidden transition-all duration-600 overflow-hidden;
+  @apply mx-[-2rem] sm:mx-0 py-0 px-6 box-border bg-white dark:bg-black rounded-xl transform scale-y-0 origin-top shadow-sm dark:shadow-gray-800 absolute z-10 left-0 right-0 top-full flex flex-col gap-y-4 lg:hidden transition-all duration-600 overflow-hidden;
   &.active {
     @apply py-4 transform scale-y-100;
   }

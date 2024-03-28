@@ -8,9 +8,7 @@
         />
       </div>
       <p class="heading-text">{{ getSection('hero.headingName') }}</p>
-      <p
-        class="text-sm text-gray-500 mb-3 py-2 dark:px-4 dark:py-2 dark:text-zinc-400 dark:bg-dark-800 dark:rounded-lg"
-      >
+      <p class="subheading-text">
         {{ getSection('hero.headingRole') }}
       </p>
       <div class="social">
@@ -89,11 +87,15 @@ export default class HomePage extends mixins(BasePage) {
 
 <style>
 .avatar {
-  @apply max-w-280px rounded-full overflow-hidden;
+  @apply max-w-240px xl:max-w-280px rounded-full overflow-hidden;
 }
 
 .heading-text {
   font-family: 'Playfair Display', sans-serif;
-  @apply text-3xl tracking-wide my-4 text-dark dark:text-white;
+  @apply text-2xl xl:text-3xl font-medium tracking-wide my-4 text-dark dark:text-white;
+}
+
+.subheading-text {
+  @apply text-sm font-medium text-gray-500 mb-3 py-2 dark:px-4 dark:py-2 dark:text-zinc-400 dark:bg-dark-800 dark:rounded-lg;
 }
 </style>
