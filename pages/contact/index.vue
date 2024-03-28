@@ -34,15 +34,20 @@
                 >design work or partnership.
               </span>
             </h2>
-            <BlocForm formClass="mt-5">
+            <BlocForm
+              :action="`mailto:${myMail}`"
+              method="POST"
+              formClass="mt-5"
+            >
               <BlocInput
                 v-for="input in getSection('hero.form')"
                 :key="input.id"
                 autoComplete="off"
                 :label="input.label"
-                id="test-input"
+                :id="input.inputId"
                 :isRequired="input.required"
                 :type="input.type"
+                :value="input.value"
               />
               <BlocButton buttonClass="submit-button" type="submit"
                 >Submit
@@ -63,6 +68,8 @@
 <script>
 import { Component, mixins } from 'nuxt-property-decorator';
 import BasePage from '~/mixins/BasePage';
+
+const MY_MAIL = 'quocduy060220@gmail.com';
 
 @Component
 export default class AboutPage extends mixins(BasePage) {
@@ -111,18 +118,21 @@ export default class AboutPage extends mixins(BasePage) {
       form: [
         {
           id: 1,
+          inputId: 'name',
           label: 'Name',
           type: 'text',
           required: true,
         },
         {
           id: 2,
+          inputId: 'email',
           label: 'Email',
           type: 'email',
           required: true,
         },
         {
           id: 3,
+          inputId: 'message',
           label: 'Message',
           type: 'textarea',
           required: true,
@@ -131,6 +141,7 @@ export default class AboutPage extends mixins(BasePage) {
     },
     footer: '© 2024 All Rights Reserved by Woodie Vo.',
   };
+  myMail = MY_MAIL;
 }
 </script>
 

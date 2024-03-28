@@ -7,6 +7,7 @@
     <textarea
       v-if="type === 'textarea'"
       class="bloc-input-core"
+      v-model="inputValue"
       :name="id"
       :id="id"
       :type="type"
@@ -14,10 +15,12 @@
       :placeholder="placeholder"
       :autocomplete="autoComplete"
       @click="isClicked = true"
+      @input="onInputChange"
     ></textarea>
     <input
       v-else
       class="bloc-input-core"
+      v-model="inputValue"
       :name="id"
       :id="id"
       :type="type"
@@ -25,12 +28,13 @@
       :placeholder="placeholder"
       :autocomplete="autoComplete"
       @click="isClicked = true"
+      @input="onInputChange"
     />
   </div>
 </template>
 
 <script>
-import { Component, Prop, Vue } from 'nuxt-property-decorator';
+import { Component, Emit, Prop, Vue } from 'nuxt-property-decorator';
 
 @Component
 export default class Input extends Vue {
@@ -41,6 +45,14 @@ export default class Input extends Vue {
   @Prop({ required: false, type: Boolean, default: false }) isRequired;
   @Prop({ required: false, type: String, default: '' }) placeholder;
   isClicked = false;
+  inputValue = '';
+  @Emit('on-input-change')
+  onInputChange() {
+    return {
+      id: this.id,
+      val: this.inputValue,
+    };
+  }
 }
 </script>
 
