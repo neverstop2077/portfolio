@@ -1,5 +1,5 @@
 <template>
-  <button @click="buttonClick" class="btn" :class="buttonClass">
+  <button :type="type" @click="buttonClick" class="btn" :class="buttonClass">
     <slot />
   </button>
 </template>
@@ -10,6 +10,7 @@ import { Component, Emit, Prop, Vue } from 'nuxt-property-decorator';
 @Component
 export default class Button extends Vue {
   @Prop({ required: false, type: String }) buttonClass;
+  @Prop({ required: false, type: String, default: 'button' }) type;
   @Emit('button-click')
   buttonClick() {}
 }

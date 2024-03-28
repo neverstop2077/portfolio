@@ -7,4 +7,5 @@ export default defineConfig({
    */
   attributify: true,
   darkMode: 'class',
+  plugins: [require('windicss/plugin/forms')],
 });
