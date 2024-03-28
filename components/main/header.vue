@@ -118,10 +118,10 @@ export default class Header extends Vue {
 $burger-button-active-color: linear-gradient(180deg, #1b74e4, #1b74e4);
 
 .header {
-  @apply pt-4 flex flex-row justify-between items-center mx-3rem relative;
+  @apply pt-4 flex flex-row justify-between items-center mx-1.5rem sm:mx-2rem lg:mx-3rem relative;
 }
 .logo {
-  @apply max-w-140px;
+  @apply max-w-80px sm:max-w-100px md:max-w-120px lg:max-w-140px;
 }
 .color-mode-btn,
 .burger-button {

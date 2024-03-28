@@ -280,7 +280,7 @@ export default class AboutPage extends mixins(BasePage) {
 
 <style lang="scss">
 .summary-image {
-  @apply max-w-250px sm:max-w-320px lg:max-w-350px rounded-3xl mb-8 lg:mb-0;
+  @apply max-w-280px sm:max-w-320px lg:max-w-350px rounded-3xl mb-8 lg:mb-0;
 }
 
 .carousel {
