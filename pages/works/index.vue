@@ -25,6 +25,12 @@
             :class="list.slug === activeTab ? 'active' : ''"
             role="tablist"
           >
+            <p
+              class="text-base text-zinc-600 dark:text-zinc-400"
+              v-show="list.list.length == 0"
+            >
+              To be updated...
+            </p>
             <div
               v-for="(item, index) in list.list"
               class="tag tab-tag-item !gap-0"
@@ -65,9 +71,17 @@
                 {{ summary.text }}
               </span>
               <span>:</span>
-              <span class="p-modal-summary-item-content">{{
-                summary.information
-              }}</span>
+              <span class="p-modal-summary-item-content">
+                <BlocLink
+                  v-if="summary.text === 'Preview'"
+                  :linkTo="summary.information"
+                  linkClass="underline"
+                  linkTarget="_blank"
+                  :isInternal="false"
+                  >{{ summary.information }}</BlocLink
+                >
+                <span v-else>{{ summary.information }}</span>
+              </span>
             </div>
           </div>
         </div>
@@ -113,8 +127,8 @@ export default class AboutPage extends mixins(BasePage) {
       tabs: [
         {
           id: 1,
-          title: 'All',
-          slug: 'all',
+          title: 'Website',
+          slug: 'website',
           list: [
             {
               id: 1,
@@ -162,87 +176,24 @@ export default class AboutPage extends mixins(BasePage) {
           id: 2,
           title: 'Mockup',
           slug: 'mockup',
-          list: [
-            {
-              id: 1,
-              position: 'Front-end dev mockup',
-              project: 'Scale Commerce',
-              type: 'Website',
-              client: 'Scale Commerce',
-              tech: 'HTML/CSS, JQuery, Bootstrap',
-              preview: 'https://smoxy.eu',
-              image: require('~/assets/images/work-img-1.jpg'),
-            },
-            {
-              id: 2,
-              position: 'Front-end dev mockup',
-              project: 'Scale Commerce',
-              type: 'Website',
-              client: 'Scale Commerce',
-              tech: 'HTML/CSS, JQuery, Bootstrap',
-              preview: 'https://smoxy.eu',
-              image: require('~/assets/images/work-img-1.jpg'),
-            },
-          ],
+          list: [],
         },
         {
           id: 3,
           title: 'Graphic design',
           slug: 'graphic-design',
-          list: [
-            {
-              id: 1,
-              position: 'Front-end dev Graphic',
-              project: 'Scale Commerce',
-              type: 'Website',
-              client: 'Scale Commerce',
-              tech: 'HTML/CSS, JQuery, Bootstrap',
-              preview: 'https://smoxy.eu',
-              image: require('~/assets/images/work-img-1.jpg'),
-            },
-            {
-              id: 2,
-              position: 'Front-end dev Graphic',
-              project: 'Scale Commerce',
-              type: 'Website',
-              client: 'Scale Commerce',
-              tech: 'HTML/CSS, JQuery, Bootstrap',
-              preview: 'https://smoxy.eu',
-              image: require('~/assets/images/work-img-1.jpg'),
-            },
-          ],
+          list: [],
         },
         {
           id: 4,
           title: 'Logo',
           slug: 'logo',
-          list: [
-            {
-              id: 1,
-              position: 'Front-end dev Logo',
-              project: 'Scale Commerce',
-              type: 'Website',
-              client: 'Scale Commerce',
-              tech: 'HTML/CSS, JQuery, Bootstrap',
-              preview: 'https://smoxy.eu',
-              image: require('~/assets/images/work-img-1.jpg'),
-            },
-            {
-              id: 2,
-              position: 'Front-end dev Logo',
-              project: 'Scale Commerce',
-              type: 'Website',
-              client: 'Scale Commerce',
-              tech: 'HTML/CSS, JQuery, Bootstrap',
-              preview: 'https://smoxy.eu',
-              image: require('~/assets/images/work-img-1.jpg'),
-            },
-          ],
+          list: [],
         },
       ],
     },
   };
-  activeTab = 'all';
+  activeTab = 'website';
   activeItem = {};
   modalSample = {
     header: [
