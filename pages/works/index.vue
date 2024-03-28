@@ -333,6 +333,8 @@ $active-tab-color: linear-gradient(97deg, #fa5252, #dd2476);
     @apply px-12 py-8 max-w-9/10 sm:max-w-600px md:max-w-9/10 rounded-3xl overflow-auto dark:bg-dark-200;
 
     left: 50% !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
     transform: translateX(-50%) !important;
   }
 }

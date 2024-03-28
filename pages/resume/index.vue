@@ -38,7 +38,7 @@
           </div>
         </div>
         <div
-          class="section-wrapper px-8 !items-stretch !lg:flex-row !justify-between gap-8"
+          class="section-wrapper px-2 sm:px-4 md:px-6 lg:px-8 !items-stretch !lg:flex-row !justify-between gap-8"
         >
           <div class="flex flex-row flex-1 lg:max-w-3/5">
             <div class="w-full">
