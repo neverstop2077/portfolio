@@ -33,23 +33,25 @@
           ></i>
           <i v-else class="fa-solid fa-moon"></i>
         </BlocButton>
-        <BlocButton
-          @button-click="mobileMenuOpen = !mobileMenuOpen"
-          buttonClass="burger-button active"
-        >
-          <i class="fa-solid fa-bars"></i>
-        </BlocButton>
-        <!--Mobile Menu-->
-        <div class="mobile-menu" :class="mobileMenuOpen ? 'active' : ''">
-          <BlocLink v-for="tab in tabs" :key="tab.id" :linkTo="tab.route">
-            <span
-              :class="$route.path === tab.route ? 'active' : ''"
-              class="mobile-menu-item"
-            >
-              <i :class="tab.iconClass"></i>
-              {{ tab.title }}
-            </span>
-          </BlocLink>
+        <div v-click-outside="() => (mobileMenuOpen = false)" class="">
+          <BlocButton
+            @button-click="mobileMenuOpen = !mobileMenuOpen"
+            buttonClass="burger-button active"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </BlocButton>
+          <!--Mobile Menu-->
+          <div class="mobile-menu" :class="mobileMenuOpen ? 'active' : ''">
+            <BlocLink v-for="tab in tabs" :key="tab.id" :linkTo="tab.route">
+              <span
+                :class="$route.path === tab.route ? 'active' : ''"
+                class="mobile-menu-item"
+              >
+                <i :class="tab.iconClass"></i>
+                {{ tab.title }}
+              </span>
+            </BlocLink>
+          </div>
         </div>
       </div>
     </header>
