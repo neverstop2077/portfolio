@@ -27,7 +27,7 @@
           >
             <div
               v-for="(item, index) in list.list"
-              class="tag tab-tag-item"
+              class="tag tab-tag-item !gap-0"
               :class="index % 2 === 0 ? 'tag-pink' : 'tag-blue'"
               @click="
                 () => {
@@ -353,11 +353,11 @@ $active-tab-color: linear-gradient(97deg, #fa5252, #dd2476);
     @apply mb-8 mt-3 text-3xl text-rose-500 font-bold flex justify-center;
   }
   &-summary {
-    @apply grid grid-cols-2 gap-x-6 gap-y-6;
+    @apply grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6;
     &-item {
-      @apply text-1.125rem flex items-start gap-x-1 text-dark dark:text-white;
+      @apply text-1.125rem gap-x-1 text-dark dark:text-white;
       &-header {
-        @apply flex gap-x-2;
+        @apply;
       }
       &-icon {
       }
@@ -375,7 +375,10 @@ $active-tab-color: linear-gradient(97deg, #fa5252, #dd2476);
     }
   }
   & .vm--modal {
-    @apply px-12 py-8 rounded-3xl overflow-auto dark:bg-dark-200;
+    @apply px-12 py-8 max-w-9/10 sm:max-w-600px md:max-w-9/10 rounded-3xl overflow-auto dark:bg-dark-200;
+
+    left: 50% !important;
+    transform: translateX(-50%) !important;
   }
 }
 </style>

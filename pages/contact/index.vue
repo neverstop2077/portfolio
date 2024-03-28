@@ -12,7 +12,7 @@
             <div
               v-for="info in getSection('hero.info')"
               :key="info.key"
-              class="tag tag-pink"
+              class="tag tag-pink !flex-row"
             >
               <i :class="info.icon"></i>
               <div>

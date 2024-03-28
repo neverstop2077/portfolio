@@ -20,7 +20,7 @@
                 <div
                   v-for="(item, itemIndex) in resume.items"
                   :key="item.id"
-                  class="tag resume-tag"
+                  class="tag resume-tag !items-start"
                   :class="
                     (resumeIndex + itemIndex) % 2 === 0
                       ? 'tag-pink'
@@ -38,9 +38,9 @@
           </div>
         </div>
         <div
-          class="section-wrapper px-8 !items-stretch !flex-row !justify-between gap-x-8"
+          class="section-wrapper px-8 !items-stretch !lg:flex-row !justify-between gap-8"
         >
-          <div class="flex flex-row flex-1 max-w-3/5">
+          <div class="flex flex-row flex-1 lg:max-w-3/5">
             <div class="w-full">
               <h2 class="card-content-section-heading !mb-6 !font-medium">
                 {{ getSection('main.skills.heading') }}
@@ -57,7 +57,7 @@
               </div>
             </div>
           </div>
-          <div class="flex-1 max-w-2/5">
+          <div class="flex-1 lg:max-w-2/5">
             <h2 class="card-content-section-heading !mb-6 !font-medium">
               {{ getSection('main.knowledge.heading') }}
             </h2>
@@ -125,14 +125,14 @@ export default class AboutPage extends mixins(BasePage) {
           items: [
             {
               id: 1,
-              timeline: '2023-2024',
-              title: 'Scale Commerce',
+              timeline: '2024-present',
+              title: 'Emma Career',
               location: 'NFQ Vietnam',
             },
             {
               id: 2,
-              timeline: '2024-present',
-              title: 'Emma Career',
+              timeline: '2023-2024',
+              title: 'Scale Commerce',
               location: 'NFQ Vietnam',
             },
           ],
@@ -208,7 +208,7 @@ export default class AboutPage extends mixins(BasePage) {
     @apply flex items-center gap-x-2 mb-6;
   }
   &-title {
-    @apply inline text-2xl text-black dark:text-white;
+    @apply font-medium inline text-2xl xl:text-1.625rem text-black dark:text-white;
   }
   &-icon {
     @apply text-3xl text-red-400;

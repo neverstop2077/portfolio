@@ -5,7 +5,9 @@
         <h1 class="headline-1">{{ getSection('hero.heading') }}</h1>
       </div>
       <div class="card-content">
-        <div class="flex flex-row columns-2 items-center mx-[-1rem]">
+        <div
+          class="flex flex-col lg:flex-row columns-2 items-center mx-[-1rem]"
+        >
           <div class="card-content-item card-content-left">
             <img
               :src="getSection('hero.image')"
@@ -30,7 +32,7 @@
               <h2 class="card-content-section-heading">
                 {{ getSection('hero.information.heading') }}
               </h2>
-              <div class="grid grid-cols-2">
+              <div class="grid grid-cols-1 lg:grid-cols-2">
                 <div
                   v-for="badge in getSection('hero.information.badges')"
                   :key="badge.id"
@@ -49,10 +51,12 @@
           </div>
         </div>
         <div class="mt-8">
-          <h2 class="card-content-section-heading">
+          <h2
+            class="card-content-section-heading !text-4xl !lg:text-2xl !xl:text-4xl"
+          >
             {{ getSection('main.showCase.heading') }}
           </h2>
-          <div class="grid grid-cols-2 gap-6 mt-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
             <div
               v-for="(tag, index) in getSection('main.showCase.tags')"
               class="tag"
@@ -70,7 +74,7 @@
           </div>
         </div>
         <div class="section-wrapper">
-          <h2 class="card-content-section-heading !mb-6">
+          <h2 class="card-content-section-heading">
             {{ getSection('end.clients.heading') }}
           </h2>
           <carousel
@@ -244,7 +248,7 @@ export default class AboutPage extends mixins(BasePage) {
 
 <style lang="scss">
 .summary-image {
-  @apply max-w-270px max-h-400px rounded-3xl;
+  @apply max-w-320px lg:max-w-350px rounded-3xl mb-8 lg:mb-0;
 }
 
 .carousel {
