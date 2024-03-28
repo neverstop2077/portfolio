@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { Component, Vue } from 'nuxt-property-decorator';
+import { Component, Vue, Watch } from 'nuxt-property-decorator';
 
 const DARK_MODE = 'dark';
 const LIGHT_MODE = 'light';
@@ -104,6 +104,13 @@ export default class Header extends Vue {
     this.$colorMode.preference =
       this.$colorMode.value === DARK_MODE ? LIGHT_MODE : DARK_MODE;
   };
+
+  @Watch('$route')
+  onRouteChange(to, from) {
+    if (to.fullPath !== from.fullPath) {
+      this.mobileMenuOpen = false;
+    }
+  }
 }
 </script>
 
