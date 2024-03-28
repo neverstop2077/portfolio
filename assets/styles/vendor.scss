@@ -1,6 +1,6 @@
 //Card
 .card {
-  @apply bg-white dark:bg-neutral-900 mx-8 px-0 sm:px-4 lg:px-8 pt-16 pb-6 rounded-xl;
+  @apply bg-white dark:bg-neutral-900 mx-8 px-2 sm:px-4 lg:px-8 pt-16 pb-6 rounded-xl;
 
   &-header {
     @apply mb-40px px-4;
@@ -10,7 +10,7 @@
     @apply mt-8 flex mx-auto;
 
     &-content {
-      @apply mx-auto text-zinc-800 dark:text-zinc-400;
+      @apply text-center mx-auto text-zinc-800 dark:text-zinc-400;
     }
   }
 
@@ -57,7 +57,7 @@
 
 //Tags (img + title + content)
 .tag {
-  @apply flex flex-col gap-y-6 items-center flex-wrap sm:gap-y-0 sm:flex-row sm:items-start px-7 py-5 mb-3 rounded-xl gap-x-5 border-0 dark:border-0.3px dark:border-zinc-600;
+  @apply flex flex-col gap-y-6 items-center flex-wrap sm:flex-nowrap sm:gap-y-0 sm:flex-row sm:items-start px-2 sm:px-4 md:px-7 py-5 mb-3 rounded-xl gap-x-5 border-0 dark:border-0.3px dark:border-zinc-600;
 
   &.tag-pink {
     @apply bg-rose-50 dark:bg-transparent;
@@ -117,7 +117,7 @@
   }
 
   &-content {
-    @apply lg:text-0.875rem xl:text-base text-dark dark:text-white;
+    @apply hyphens-auto lg:text-0.875rem xl:text-base text-dark dark:text-white;
   }
 }
 

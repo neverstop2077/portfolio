@@ -267,10 +267,10 @@ $active-tab-color: linear-gradient(97deg, #fa5252, #dd2476);
   &-container {
   }
   &-header {
-    @apply flex items-center justify-end gap-x-5;
+    @apply flex items-start flex-col sm:flex-row sm:items-center justify-end gap-x-5;
 
     &-item {
-      @apply text-normal font-medium text-zinc-700 dark:text-zinc-400 px-3 hover:text-pink-500;
+      @apply text-normal font-medium text-zinc-700 dark:text-zinc-400 px-0 sm:px-3 hover:text-pink-500;
 
       &.active {
         @apply text-rose-500;

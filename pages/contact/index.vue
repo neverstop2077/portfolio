@@ -12,7 +12,7 @@
             <div
               v-for="info in getSection('hero.info')"
               :key="info.key"
-              class="tag tag-pink !flex-row"
+              class="tag tag-pink !flex-row !items-start"
             >
               <i :class="info.icon"></i>
               <div>
@@ -24,7 +24,7 @@
             </div>
           </div>
           <div
-            class="section-wrapper !xl:mt-0 !items-stretch py-6 px-12 flex-1"
+            class="section-wrapper !xl:mt-0 !items-stretch px-2 sm:px-4 md:px-8 lg:px-10 xl:px-12 py-6 flex-1"
           >
             <h2
               class="card-content-section-heading !mb-6 !text-zinc-600 !dark:text-zinc-400"
