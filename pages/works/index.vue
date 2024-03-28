@@ -89,7 +89,7 @@
 
       <div class="card-footer">
         <p class="card-footer-content">
-          {{ getSection('footer') }}
+          {{ $footer }}
         </p>
       </div>
     </div>
@@ -241,7 +241,6 @@ export default class AboutPage extends mixins(BasePage) {
         },
       ],
     },
-    footer: '© 2024 All Rights Reserved by Woodie Vo.',
   };
   activeTab = 'all';
   activeItem = {};

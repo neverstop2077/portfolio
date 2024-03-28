@@ -53,7 +53,7 @@
       </div>
       <div class="card-footer">
         <p class="card-footer-content">
-          {{ getSection('footer') }}
+          {{ $footer }}
         </p>
       </div>
     </div>
