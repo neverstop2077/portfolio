@@ -15,4 +15,11 @@ export default class BasePage extends Vue {
     }
     return data;
   }
+
+  head() {
+    return {
+      title: this.getSection('head.title') || "Woodie's Portfolio",
+      meta: this.getSection('head.meta'),
+    };
+  }
 }

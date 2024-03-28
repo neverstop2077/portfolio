@@ -50,6 +50,37 @@ const CV_LINK = '/assets/documents/CV.pdf';
 @Component
 export default class HomePage extends mixins(BasePage) {
   section = {
+    head: {
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            "I'm Woodie, a software developer. Please reach out to me if any needed.",
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: "Woodie's - Web developer",
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            "I'm Woodie, a software developer. Please reach out to me if any needed.",
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: require('~/assets/images/woodie-image.webp'),
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: require('~/assets/images/woodie-image.webp'),
+        },
+      ],
+    },
     hero: {
       headingName: 'Woodie Vo',
       headingRole: 'Software Engineer',

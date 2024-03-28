@@ -122,6 +122,38 @@ const MODAL_SUMMARY_FIELD_4 = 'Preview';
 @Component
 export default class AboutPage extends mixins(BasePage) {
   section = {
+    head: {
+      title: 'Works',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            "I'm Woodie, a software developer. Please reach out to me if any needed.",
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: "Woodie's - Works",
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            "I'm Woodie, a software developer. Please reach out to me if any needed.",
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: require('~/assets/images/woodie-image.webp'),
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: require('~/assets/images/woodie-image.webp'),
+        },
+      ],
+    },
     hero: {
       heading: 'Portfolio',
       tabs: [

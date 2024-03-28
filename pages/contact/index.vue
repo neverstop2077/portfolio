@@ -74,6 +74,38 @@ const MY_MAIL = 'quocduy060220@gmail.com';
 @Component
 export default class AboutPage extends mixins(BasePage) {
   section = {
+    head: {
+      title: 'Contact',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            "I'm Woodie, a software developer. Please reach out to me if any needed.",
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: "Woodie's - Contact",
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            "I'm Woodie, a software developer. Please reach out to me if any needed.",
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: require('~/assets/images/woodie-image.webp'),
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: require('~/assets/images/woodie-image.webp'),
+        },
+      ],
+    },
     hero: {
       heading: 'Contact',
       info: [
