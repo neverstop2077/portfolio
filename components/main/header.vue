@@ -29,9 +29,9 @@
         >
           <i
             v-if="this.$colorMode.value === 'light'"
-            class="fa-solid fa-sun"
+            class="fa-solid fa-moon"
           ></i>
-          <i v-else class="fa-solid fa-moon"></i>
+          <i v-else class="fa-solid fa-sun"></i>
         </BlocButton>
         <div v-click-outside="() => (mobileMenuOpen = false)" class="">
           <BlocButton

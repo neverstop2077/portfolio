@@ -73,7 +73,12 @@
           <h2 class="card-content-section-heading !mb-6">
             {{ getSection('end.clients.heading') }}
           </h2>
-          <carousel :autoplay="true" :per-page="1" :pagination-enabled="false">
+          <carousel
+            :autoplay="true"
+            :per-page="1"
+            :loop="true"
+            :pagination-enabled="false"
+          >
             <slide
               v-for="client in getSection('end.clients.content')"
               :key="client.id"
